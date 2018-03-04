@@ -16,18 +16,18 @@ public class SGAInitialization implements InitializationBehavior{
 			ga.SGAdata[i]=new Data(pop);
 		}
 		//String[] Pop=new String[pop];
-		System.out.println("第1世代開始\n初期集団");
+		System.out.println("第1世代開始.\n初期集団生成.");
 		for(int i=0;i<pop;i++){
-			ga.SGAdata[0].Pop[i]="";
+			ga.SGAdata[0].poplation[i]="";
 			for(int i2=0;i2<geneSize;i2++){
-				ga.SGAdata[0].Pop[i] +=(int)(Math.random()+0.5);
+				ga.SGAdata[0].poplation[i] +=(int)(Math.random()+0.5);
 			}
 		}
 
 		//デバッグ表示
-		for(int i=0;i<pop;i++){
-			System.out.println("Pop["+i+"]="+ga.SGAdata[0].Pop[i]);
-		}
+		/*for(int i=0;i<pop;i++){
+			System.out.println("Pop["+i+"]="+ga.SGAdata[0].poplation[i]);
+		}*/
 
 	}
 }

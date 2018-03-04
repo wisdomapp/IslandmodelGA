@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public abstract class GeneticAlgorithm{
 
-
 	private int GAtype; //GAtype選択
 	private int ISLAND=4; //島の数
 	private int IMMIGRATION=25; //移住イベント世代数
@@ -21,18 +20,20 @@ public abstract class GeneticAlgorithm{
 	private Data PGAdata[][]; //PGA用構造体
 
 	public InitializationBehavior initializationBehavior;
+	public FitnessBehavior fitnessBehavior;
 
 	public GeneticAlgorithm(){
 
 	}
 
 	//初期化
-	public void performInitialization(GeneticAlgorithm test){
-		initializationBehavior.initialization(test);
+	public void performInitialization(GeneticAlgorithm ga){
+		initializationBehavior.initialization(ga);
 	}
 	//評価
-	public void performFitness(){
-
+	public void performFitness(GeneticAlgorithm ga){
+		fitnessBehavior.conversion(ga);
+		fitnessBehavior.conpatible(ga);
 	}
 	//選択
 	public void performSelection(){
@@ -51,8 +52,8 @@ public abstract class GeneticAlgorithm{
 
 	}
 
+	//初期入力
 	public void FirstInput(){
-
 		System.out.println("世代数を設定してください。");
 		setGeneration(intReader());
 		System.out.println("集団数を設定してください。");
@@ -63,7 +64,6 @@ public abstract class GeneticAlgorithm{
 		setGrayF(intReader());
 		System.out.println("一点交叉なら0,一様交叉なら1を入力してください。");
 		setCrossingF(intReader());
-
 	}
 
 	//int型標準入力
@@ -72,6 +72,34 @@ public abstract class GeneticAlgorithm{
 		Scanner in = new Scanner(System.in);
         int line = in.nextInt();//文字列の入力受付
         return line;
+	}
+	
+	//graycode変換
+	public String Gray(String Pop){
+		String Tmp="";
+		for(int z=0;Pop.length()>z;z++){
+			if(z==0){
+				Tmp+=String.valueOf(Pop.charAt(0));
+			}else{
+				char t0,t1;
+				int s0,s1;
+				t0=Pop.charAt(z);
+				t1=Tmp.charAt(z-1);
+				s0= Integer.parseInt(String.valueOf(t0));
+				s1=Integer.parseInt(String.valueOf(t1));
+				int h=s0^s1;
+				Tmp+=String.valueOf(h);
+			}
+
+		}
+		return Tmp;
+	}
+	
+	public double fitnessFunction(double tmp){
+		//Pop3[i]=Math.abs(Math.sin(5*Math.PI*tmp));
+		//Pop3[i]=tmp*Math.abs(Math.sin(4*Math.PI*tmp));//関数(GraphPanelも修正必須)
+		double x=-4*tmp*(tmp-1);//適合度関数
+		return x;
 	}
 
 	//アクセサ

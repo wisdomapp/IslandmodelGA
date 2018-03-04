@@ -5,7 +5,7 @@ import java.util.Scanner;
 import SGA.SGA;
 
 public class GAmain{
-
+	private static GeneticAlgorithm ga;
 	public static void main(String[] args){
 
 		System.out.println("SGAなら0,PGAなら1.");
@@ -14,11 +14,12 @@ public class GAmain{
         int line = in.nextInt();//文字列の入力受付
         if(line==0){
         	GeneticAlgorithm ga=new SGA();
-        	ga.FirstInput();
-        	ga.performInitialization(ga);
+        	GAmain.ga=ga;
         }else if(line==1){
-
         }
+    	ga.FirstInput(); //初期入力
+    	ga.performInitialization(ga); //初期化
+    	ga.performFitness(ga); //評価
 
 	}
 

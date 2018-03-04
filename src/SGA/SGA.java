@@ -6,6 +6,7 @@ public class SGA extends GeneticAlgorithm{
 	
 	public SGA(){
 		initializationBehavior=new SGAInitialization();
+		fitnessBehavior=new SGAFitness();
 	}
 
 }
