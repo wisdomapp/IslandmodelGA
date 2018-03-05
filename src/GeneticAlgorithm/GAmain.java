@@ -16,13 +16,16 @@ public class GAmain{
         if(line==0){
         	GeneticAlgorithm ga=new SGA();
         	GAmain.ga=ga;
+        	ga.setGAtype(0);
         }else if(line==1){
         	GeneticAlgorithm ga=new PGA();
         	GAmain.ga=ga;
+        	ga.setGAtype(1);
         }
     	ga.FirstInput(); //初期入力
     	ga.performInitialization(ga); //初期化
     	ga.performFitness(ga); //評価
+    	ga.performElite(ga);//エリート戦略
 
 	}
 

@@ -4,10 +4,9 @@ import GeneticAlgorithm.FitnessBehavior;
 import GeneticAlgorithm.GeneticAlgorithm;
 
 public class SGAFitness implements FitnessBehavior{
-	
+
 	//10進数変換
 	public void conversion(GeneticAlgorithm ga){
-
 		if(ga.getGrayF()==0){
 			for(int i=0;i<ga.getPoplation();i++){
 				ga.SGAdata[ga.getCurrentgeneration()].decimalNumber[i]=
@@ -23,14 +22,10 @@ public class SGAFitness implements FitnessBehavior{
 				//System.out.println(ga.SGAdata[ga.getCurrentgeneration()].decimalNumber[i]);
 			}
 			System.out.println("graycode解釈で10進数に変換.");
-		}else{
-			System.out.println("error");
-			System.exit(1);
 		}
 	}
+
 	public void conpatible(GeneticAlgorithm ga){
-		
-		//ga.SGAdata[0].fit=new double[Pop2.length];
 		double multi=Math.pow(2.0,ga.getGeneSize() );
 		for(int i=0;i<ga.getPoplation();i++){
 			double x=ga.SGAdata[ga.getCurrentgeneration()].decimalNumber[i]/multi;

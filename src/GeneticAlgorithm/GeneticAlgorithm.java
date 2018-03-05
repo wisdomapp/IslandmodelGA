@@ -20,6 +20,8 @@ public abstract class GeneticAlgorithm{
 	public Data[][] PGAdata; //PGA用構造体
 	public InitializationBehavior initializationBehavior;
 	public FitnessBehavior fitnessBehavior;
+	public EliteBehavior eliteBehavior;
+	public SelectionBehavior selectionBehavior;
 
 	public GeneticAlgorithm(){
 
@@ -33,6 +35,10 @@ public abstract class GeneticAlgorithm{
 	public void performFitness(GeneticAlgorithm ga){
 		fitnessBehavior.conversion(ga);
 		fitnessBehavior.conpatible(ga);
+	}
+	//エリート戦略
+	public void performElite(GeneticAlgorithm ga){
+		eliteBehavior.eliteStrat(ga);
 	}
 	//選択
 	public void performSelection(){

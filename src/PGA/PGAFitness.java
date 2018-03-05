@@ -4,10 +4,9 @@ import GeneticAlgorithm.FitnessBehavior;
 import GeneticAlgorithm.GeneticAlgorithm;
 
 public class PGAFitness implements FitnessBehavior{
-	
+
 	//10進数変換
 	public void conversion(GeneticAlgorithm ga){
-
 		if(ga.getGrayF()==0){
 			for(int island=0;island<ga.getISLAND();island++){
 				for(int i=0;i<ga.getPoplation();i++){
@@ -27,9 +26,6 @@ public class PGAFitness implements FitnessBehavior{
 				}
 			}
 			System.out.println("graycode解釈で10進数に変換.");
-		}else{
-			System.out.println("error");
-			System.exit(1);
 		}
 	}
 
@@ -42,8 +38,6 @@ public class PGAFitness implements FitnessBehavior{
 				System.out.println("island["+island+"]の適合度は"+ga.PGAdata[ga.getCurrentgeneration()][island].fit[i]);
 			}
 		}
-		
 		System.out.println("適合度評価完了.");
-		
 	}
 }
