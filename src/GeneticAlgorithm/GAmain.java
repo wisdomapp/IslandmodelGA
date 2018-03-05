@@ -2,6 +2,7 @@ package GeneticAlgorithm;
 
 import java.util.Scanner;
 
+import PGA.PGA;
 import SGA.SGA;
 
 public class GAmain{
@@ -16,10 +17,12 @@ public class GAmain{
         	GeneticAlgorithm ga=new SGA();
         	GAmain.ga=ga;
         }else if(line==1){
+        	GeneticAlgorithm ga=new PGA();
+        	GAmain.ga=ga;
         }
     	ga.FirstInput(); //初期入力
     	ga.performInitialization(ga); //初期化
-    	ga.performFitness(ga); //評価
+    	//ga.performFitness(ga); //評価
 
 	}
 

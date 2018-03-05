@@ -16,8 +16,8 @@ public abstract class GeneticAlgorithm{
 	private boolean fileF; //ファイル保存フラグ
 	private int currentisland; //現在の島
 	private int currentgeneration; //現在の世代
-	public Data SGAdata[]; //SGA用構造体
-	private Data PGAdata[][]; //PGA用構造体
+	public Data[] SGAdata; //SGA用構造体
+	public Data PGAdata[][]; //PGA用構造体
 
 	public InitializationBehavior initializationBehavior;
 	public FitnessBehavior fitnessBehavior;
@@ -73,7 +73,7 @@ public abstract class GeneticAlgorithm{
         int line = in.nextInt();//文字列の入力受付
         return line;
 	}
-	
+
 	//graycode変換
 	public String Gray(String Pop){
 		String Tmp="";
@@ -94,7 +94,7 @@ public abstract class GeneticAlgorithm{
 		}
 		return Tmp;
 	}
-	
+
 	public double fitnessFunction(double tmp){
 		//Pop3[i]=Math.abs(Math.sin(5*Math.PI*tmp));
 		//Pop3[i]=tmp*Math.abs(Math.sin(4*Math.PI*tmp));//関数(GraphPanelも修正必須)

@@ -10,10 +10,10 @@ public class SGAInitialization implements InitializationBehavior{
 		ga.setCurrentgeneration(0);
 		int pop=ga.getPoplation();
 		int geneSize=ga.getGeneSize();
-		ga.SGAdata=new Data[pop];
+		ga.SGAdata=new Data[ga.getGeneration()];
 
-		for(int i=0;i<ga.SGAdata.length;i++){
-			ga.SGAdata[i]=new Data(pop);
+		for(int gen=0;gen<ga.getGeneration();gen++){
+			ga.SGAdata[gen]=new Data(pop);
 		}
 		//String[] Pop=new String[pop];
 		System.out.println("第1世代開始.\n初期集団生成.");
