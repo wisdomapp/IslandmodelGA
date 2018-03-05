@@ -22,7 +22,7 @@ public class GAmain{
         }
     	ga.FirstInput(); //初期入力
     	ga.performInitialization(ga); //初期化
-    	//ga.performFitness(ga); //評価
+    	ga.performFitness(ga); //評価
 
 	}
 

@@ -17,8 +17,7 @@ public abstract class GeneticAlgorithm{
 	private int currentisland; //現在の島
 	private int currentgeneration; //現在の世代
 	public Data[] SGAdata; //SGA用構造体
-	public Data PGAdata[][]; //PGA用構造体
-
+	public Data[][] PGAdata; //PGA用構造体
 	public InitializationBehavior initializationBehavior;
 	public FitnessBehavior fitnessBehavior;
 

@@ -6,7 +6,7 @@ public class PGA extends GeneticAlgorithm{
 
 	public PGA(){
 		initializationBehavior=new PGAInitialization();
-		//fitnessBehavior=new PGAFitness();
+		fitnessBehavior=new PGAFitness();
 	}
 
 }
