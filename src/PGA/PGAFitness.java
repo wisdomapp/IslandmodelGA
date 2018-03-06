@@ -35,7 +35,7 @@ public class PGAFitness implements FitnessBehavior{
 			for(int i=0;i<ga.getPoplation();i++){
 				double x=ga.PGAdata[ga.getCurrentgeneration()][island].decimalNumber[i]/multi;
 				ga.PGAdata[ga.getCurrentgeneration()][island].fit[i]=ga.fitnessFunction(x);//適合度関数
-				System.out.println("island["+island+"]の適合度は"+ga.PGAdata[ga.getCurrentgeneration()][island].fit[i]);
+				//System.out.println("island["+island+"]の適合度は"+ga.PGAdata[ga.getCurrentgeneration()][island].fit[i]);
 			}
 		}
 		System.out.println("適合度評価完了.");
