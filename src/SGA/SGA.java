@@ -9,6 +9,7 @@ public class SGA extends GeneticAlgorithm {
 	fitnessBehavior = new SGAFitness();
 	eliteBehavior = new SGASingleElite();
 	selectionBehavior = new SGASelection();
+	crossoverBehavior = new SGACrossover();
     }
 
 }

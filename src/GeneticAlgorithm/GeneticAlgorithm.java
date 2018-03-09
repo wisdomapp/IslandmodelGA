@@ -7,6 +7,7 @@ public abstract class GeneticAlgorithm {
     private int GAtype; // GAtype選択
     private int ISLAND = 4; // 島の数
     private int IMMIGRATION = 25; // 移住イベント世代数
+    private double probability = 1.0;// 交叉確率
     private int grayF; // グレイコードフラグ
     private int poplation; // 集団数
     private int geneSize; // 個体長
@@ -21,6 +22,7 @@ public abstract class GeneticAlgorithm {
     public FitnessBehavior fitnessBehavior;
     public EliteBehavior eliteBehavior;
     public SelectionBehavior selectionBehavior;
+    public CrossoverBehavior crossoverBehavior;
 
     public GeneticAlgorithm() {
 
@@ -48,7 +50,12 @@ public abstract class GeneticAlgorithm {
     }
 
     // 交叉
-    public void performCrossover() {
+    public void performCrossover(GeneticAlgorithm ga) {
+	if (ga.getCrossingF() == 0) {
+	    crossoverBehavior.OnePointcrossover(ga);
+	} else if (ga.getCrossingF() == 1) {
+	    crossoverBehavior.MaskCrossover(ga);
+	}
 
     }
 
@@ -215,6 +222,14 @@ public abstract class GeneticAlgorithm {
 
     public void setCurrentgeneration(int currentgeneration) {
 	this.currentgeneration = currentgeneration;
+    }
+
+    public double getProbability() {
+	return probability;
+    }
+
+    public void setProbability(double probability) {
+	this.probability = probability;
     }
 
 }

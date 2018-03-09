@@ -9,6 +9,7 @@ public class PGA extends GeneticAlgorithm {
 	fitnessBehavior = new PGAFitness();
 	eliteBehavior = new PGASingleElite();
 	selectionBehavior = new PGASelection();
+	crossoverBehavior = new PGAcrossover();
     }
 
 }

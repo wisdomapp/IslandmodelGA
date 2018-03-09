@@ -28,6 +28,7 @@ public class GAmain {
 	ga.performFitness(ga); // 評価
 	ga.performElite(ga);// エリート戦略
 	ga.performSelection(ga);// 選択
+	ga.performCrossover(ga);// 交叉
 
     }
 
