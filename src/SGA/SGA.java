@@ -10,6 +10,7 @@ public class SGA extends GeneticAlgorithm {
 	eliteBehavior = new SGASingleElite();
 	selectionBehavior = new SGASelection();
 	crossoverBehavior = new SGACrossover();
+	mutationBehavior=new SGAMutation();
     }
 
 }

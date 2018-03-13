@@ -12,7 +12,7 @@ public abstract class GeneticAlgorithm {
     private int poplation; // 集団数
     private int geneSize; // 個体長
     private int generation; // 世代数
-    private int crossingF; // 交叉フラグ
+	private int crossingF; // 交叉フラグ
     private boolean fileF; // ファイル保存フラグ
     private int currentisland; // 現在の島
     private int currentgeneration; // 現在の世代
@@ -23,6 +23,7 @@ public abstract class GeneticAlgorithm {
     public EliteBehavior eliteBehavior;
     public SelectionBehavior selectionBehavior;
     public CrossoverBehavior crossoverBehavior;
+    public MutationBehavior mutationBehavior;
 
     public GeneticAlgorithm() {
 
@@ -60,8 +61,8 @@ public abstract class GeneticAlgorithm {
     }
 
     // 突然変異
-    public void performMutation() {
-
+    public void performMutation(GeneticAlgorithm ga) {
+    	mutationBehavior.mutation(ga);
     }
 
     // ファイル出力
@@ -231,5 +232,6 @@ public abstract class GeneticAlgorithm {
     public void setProbability(double probability) {
 	this.probability = probability;
     }
+
 
 }

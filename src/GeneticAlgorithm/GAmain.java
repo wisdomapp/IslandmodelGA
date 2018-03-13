@@ -24,12 +24,15 @@ public class GAmain {
 	    ga.setGAtype(1);
 	}
 	ga.FirstInput(); // 初期入力
+	for(int gen=0;gen<ga.getGeneration();gen++){
 	ga.performInitialization(ga); // 初期化
 	ga.performFitness(ga); // 評価
 	ga.performElite(ga);// エリート戦略
 	ga.performSelection(ga);// 選択
 	ga.performCrossover(ga);// 交叉
-
+	ga.performMutation(ga);//突然変異
+	}
+	System.out.println("終了");
     }
 
 }
